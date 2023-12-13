@@ -43,7 +43,7 @@ namespace F1_Championship
 
         private void addPilot_Click(object sender, EventArgs e)
         {
-            string filePath = @"C:\Users\fe-ga\source\Championships.json";
+            string filePath = @"C:\Users\fe-ga\Documents\GitHub\f1-championship-fena\Championships.json";
 
             try
             {

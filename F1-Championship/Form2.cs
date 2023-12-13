@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,21 +23,28 @@ namespace F1_Championship
         {
             var championship = new Championship();
             championship.ChampionshipName = championshipName.Text;
-            try
+
+            string filePath = @"C:\Users\fe-ga\Documents\GitHub\f1-championship-fena\Championships.json";
+
+            if(!File.Exists(filePath))
             {
-                using (StreamWriter sw = new StreamWriter(@"C:F1-Championship\F1-Championship\Championships.json"))
+                try
                 {
-                    sw.WriteLine(championship.JsonSerialize(championship));
+                    using (StreamWriter sw = new StreamWriter(@"C:\Users\fe-ga\Documents\GitHub\f1-championship-fena\Championships.json"))
+                    {
+                        sw.WriteLine(championship.JsonSerialize(championship));
+                    }
+                }
+                catch
+                {
+
                 }
 
-                using (StreamReader sr = new StreamReader(@"C:F1-Championship\F1-Championship\Championships.json"))
-                {
-
-                }
-            } 
-            catch
+            }
+            else
             {
-
+                string jsonContent = File.ReadAllText(filePath);
+                dynamic jsonData = JsonConvert.DeserializeObject(jsonContent);
             }
 
             this.Hide();
