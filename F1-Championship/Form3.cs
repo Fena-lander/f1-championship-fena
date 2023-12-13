@@ -14,13 +14,17 @@ namespace F1_Championship
 {
     public partial class Form3 : Form
     {
-        private Championship championship;
+        private List<Championship> championshipList;
+        public Championship lastChampionship;
+
+        string filePath = @"C:\Users\fe-ga\Documents\GitHub\f1-championship-fena\Championships.json";
 
         public Form3()
         {
             InitializeComponent();
-            championship = new Championship();
-            championship.Pilots = new List<Pilot>();
+            string json = File.ReadAllText(filePath);
+            championshipList = JsonConvert.DeserializeObject<List<Championship>>(json);
+            lastChampionship = championshipList.Last();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -43,58 +47,27 @@ namespace F1_Championship
 
         private void addPilot_Click(object sender, EventArgs e)
         {
-            string filePath = @"C:\Users\fe-ga\Documents\GitHub\f1-championship-fena\Championships.json";
+            string name = pilotName.Text;
+            int pilotCarNumber = int.Parse(carNumber.Text);
 
-            try
+            foreach(var pilot in lastChampionship.Pilots)
             {
-                string name = pilotName.Text;
-                int pilotCarNumber = int.Parse(carNumber.Text);
-
-                // Le o arquivo inteiro então disserializa ele
-                string existingCarNumber = File.ReadAllText(filePath);
-                dynamic jsonData = JsonConvert.DeserializeObject(existingCarNumber);
-
-                if (jsonData.Pilots != null)
+                if(pilot.CarNumber == pilotCarNumber)
                 {
-                    foreach (var pilot in jsonData.Pilots)
-                    {
-                        if (pilot.CarNumber == pilotCarNumber)
-                        {
-                            MessageBox.Show("Esse número de carro já existe");
-                            pilotName.Text = string.Empty;
-                            carNumber.Text = string.Empty;
-                            return;
-                        }
-                    }
+                    MessageBox.Show("Esse número de carro já existe");
+                    pilotName.Text = string.Empty;
+                    carNumber.Text = string.Empty;
+                    return;
                 }
-
-                if (championship.Pilots != null)
-                {
-                    championship.Pilots = new List<Pilot>();
-                }
-
-                championship.Pilots.Add(new Pilot { Name = name, CarNumber = pilotCarNumber });
-
-                pilotName.Text = string.Empty;
-                carNumber.Text = string.Empty;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocorreu um erro: {ex.Message}");
             }
 
-            if (File.Exists(filePath))
-            {
-                string existingJson = File.ReadAllText(filePath);
+            lastChampionship.Pilots.Add(new Pilot { Name = name, CarNumber = pilotCarNumber });
 
-                Championship existingChampionship = JsonConvert.DeserializeObject<Championship>(existingJson);
+            string updatedJson = JsonConvert.SerializeObject(championshipList, Formatting.Indented);
 
-                existingChampionship.Pilots.AddRange(championship.Pilots);
-
-                string updatedJson = existingChampionship.JsonSerialize(existingChampionship);
-                File.WriteAllText(filePath, updatedJson);
-            }
+            File.WriteAllText(filePath, updatedJson);
+            pilotName.Text = string.Empty;
+            carNumber.Text = string.Empty;
         }
 
         private void finishChampionship_Click(object sender, EventArgs e)
