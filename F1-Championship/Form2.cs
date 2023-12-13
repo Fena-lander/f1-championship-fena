@@ -14,9 +14,20 @@ namespace F1_Championship
 {
     public partial class Form2 : Form
     {
+        private List<Championship> championshipList;
+
+        string filePath = @"C:\Users\fe-ga\Documents\GitHub\f1-championship-fena\Championships.json";
+
         public Form2()
         {
             InitializeComponent();
+            championshipList = new List<Championship>();
+
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                championshipList = JsonConvert.DeserializeObject<List<Championship>>(json);
+            }
         }
 
         private void startChampionship_Click(object sender, EventArgs e)
@@ -24,27 +35,27 @@ namespace F1_Championship
             var championship = new Championship();
             championship.ChampionshipName = championshipName.Text;
 
-            string filePath = @"C:\Users\fe-ga\Documents\GitHub\f1-championship-fena\Championships.json";
+            bool campeonatoExistente = championshipList.Any(c => c.ChampionshipName == championship.ChampionshipName);
 
-            if(!File.Exists(filePath))
+            if (campeonatoExistente)
+            {
+                MessageBox.Show("Já existe um campeonato com o mesmo nome. Escolha um nome diferente.");
+                return;
+            }
+            else
             {
                 try
                 {
-                    using (StreamWriter sw = new StreamWriter(@"C:\Users\fe-ga\Documents\GitHub\f1-championship-fena\Championships.json"))
-                    {
-                        sw.WriteLine(championship.JsonSerialize(championship));
-                    }
+                    championshipList.Add(championship);
+
+                    string json = JsonConvert.SerializeObject(championshipList, Formatting.Indented);
+
+                    File.WriteAllText(filePath, json);
                 }
                 catch
                 {
 
                 }
-
-            }
-            else
-            {
-                string jsonContent = File.ReadAllText(filePath);
-                dynamic jsonData = JsonConvert.DeserializeObject(jsonContent);
             }
 
             this.Hide();

@@ -9,13 +9,11 @@ namespace F1_Championship
 {
     public class Championship
     {
-        //public List<Championship> Tournaments; 
         public string ChampionshipName{ get; set; }
         public List<Pilot> Pilots { get; set; }
 
         public Championship()
         {
-            //Tournaments = new List<Championship>();
             Pilots = new List<Pilot>();
         }
 
