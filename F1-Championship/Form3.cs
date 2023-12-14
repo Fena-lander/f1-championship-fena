@@ -67,7 +67,6 @@ namespace F1_Championship
             string updatedJson = JsonConvert.SerializeObject(championshipList, Formatting.Indented);
 
             File.WriteAllText(filePath, updatedJson);
-            pilotName.Text = string.Empty;
             carNumber.Text = string.Empty;
 
             dataGridView1.DataSource = null;
@@ -76,7 +75,10 @@ namespace F1_Championship
 
         private void finishChampionship_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Form1 backMenu = new Form1();
+            backMenu.FormClosed += (s, args) => this.Close();
+            backMenu.Show();
         }
 
         private void carNumber_TextChanged(object sender, EventArgs e)

@@ -46,7 +46,7 @@ namespace F1_Championship
         {
             listView1.Columns.Add("Campeonato", 200);
             listView1.Columns.Add("Pilotos", 50);
-            //listView1.Columns.Add("Corridas", 50);
+            listView1.Columns.Add("Corridas", 50);
             listView1.View = View.Details;
 
             listView1.FullRowSelect = true;

@@ -35,7 +35,6 @@
             this.carNumber = new System.Windows.Forms.TextBox();
             this.addPilot = new System.Windows.Forms.Button();
             this.clearPilot = new System.Windows.Forms.Button();
-            this.backMenu = new System.Windows.Forms.Button();
             this.finishChampionship = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +44,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(358, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(430, 426);
+            this.dataGridView1.Size = new System.Drawing.Size(267, 291);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -105,23 +104,13 @@
             this.clearPilot.UseVisualStyleBackColor = true;
             this.clearPilot.Click += new System.EventHandler(this.button2_Click);
             // 
-            // backMenu
-            // 
-            this.backMenu.Location = new System.Drawing.Point(209, 392);
-            this.backMenu.Name = "backMenu";
-            this.backMenu.Size = new System.Drawing.Size(94, 46);
-            this.backMenu.TabIndex = 4;
-            this.backMenu.Text = "Menu";
-            this.backMenu.UseVisualStyleBackColor = true;
-            this.backMenu.Click += new System.EventHandler(this.backMenu_Click);
-            // 
             // finishChampionship
             // 
-            this.finishChampionship.Location = new System.Drawing.Point(34, 392);
+            this.finishChampionship.Location = new System.Drawing.Point(34, 225);
             this.finishChampionship.Name = "finishChampionship";
-            this.finishChampionship.Size = new System.Drawing.Size(94, 46);
+            this.finishChampionship.Size = new System.Drawing.Size(269, 46);
             this.finishChampionship.TabIndex = 5;
-            this.finishChampionship.Text = "Finalizar Campeonato";
+            this.finishChampionship.Text = "Começar Campeonato";
             this.finishChampionship.UseVisualStyleBackColor = true;
             this.finishChampionship.Click += new System.EventHandler(this.finishChampionship_Click);
             // 
@@ -129,9 +118,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(651, 315);
             this.Controls.Add(this.finishChampionship);
-            this.Controls.Add(this.backMenu);
             this.Controls.Add(this.clearPilot);
             this.Controls.Add(this.addPilot);
             this.Controls.Add(this.carNumber);
@@ -156,7 +144,6 @@
         private System.Windows.Forms.TextBox carNumber;
         private System.Windows.Forms.Button addPilot;
         private System.Windows.Forms.Button clearPilot;
-        private System.Windows.Forms.Button backMenu;
         private System.Windows.Forms.Button finishChampionship;
     }
 }
