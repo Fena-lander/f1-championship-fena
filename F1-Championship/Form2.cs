@@ -16,7 +16,10 @@ namespace F1_Championship
     {
         private List<Championship> championshipList;
 
-        string filePath = @"C:\Users\fe-ga\Documents\GitHub\f1-championship-fena\Championships.json";
+        //string filePath = @"C:\Users\fe-ga\Documents\GitHub\f1-championship-fena\Championships.json";
+
+        string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Championship.json");
+
 
         public Form2()
         {
