@@ -34,7 +34,8 @@ namespace F1_Championship
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            pilotName.Text = string.Empty;
+            carNumber.Text = string.Empty;
         }
 
         private void backMenu_Click(object sender, EventArgs e)
@@ -73,6 +74,20 @@ namespace F1_Championship
         private void finishChampionship_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void carNumber_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void carNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+            carNumber.MaxLength = 10;
         }
     }
 }

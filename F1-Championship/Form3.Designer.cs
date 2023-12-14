@@ -81,6 +81,8 @@
             this.carNumber.Name = "carNumber";
             this.carNumber.Size = new System.Drawing.Size(177, 20);
             this.carNumber.TabIndex = 2;
+            this.carNumber.TextChanged += new System.EventHandler(this.carNumber_TextChanged);
+            this.carNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.carNumber_KeyPress);
             // 
             // addPilot
             // 
