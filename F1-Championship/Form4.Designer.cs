@@ -63,6 +63,7 @@
             this.selectChampionship.TabIndex = 1;
             this.selectChampionship.Text = "Selecionar";
             this.selectChampionship.UseVisualStyleBackColor = true;
+            this.selectChampionship.Click += new System.EventHandler(this.selectChampionship_Click);
             // 
             // deleteChampionship
             // 

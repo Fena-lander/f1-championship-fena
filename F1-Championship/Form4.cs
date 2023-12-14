@@ -87,5 +87,22 @@ namespace F1_Championship
                 }
             }
         }
+
+        private void selectChampionship_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in listView1.Items)
+            {
+                if (item.Selected)
+                {
+                    string championshipNameSelect = item.SubItems[0].Text;
+                    var championshipsSelected = championshipList.Where(c => c.ChampionshipName == championshipNameSelect).ToList();
+
+                    this.Hide();
+                    Form5 newChampionship = new Form5(championshipsSelected);
+                    newChampionship.FormClosed += (s, args) => this.Close();
+                    newChampionship.Show();
+                }
+            }
+        }
     }
 }
