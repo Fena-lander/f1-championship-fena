@@ -69,6 +69,9 @@ namespace F1_Championship
             File.WriteAllText(filePath, updatedJson);
             pilotName.Text = string.Empty;
             carNumber.Text = string.Empty;
+
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = lastChampionship.Pilots;
         }
 
         private void finishChampionship_Click(object sender, EventArgs e)
