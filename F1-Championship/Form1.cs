@@ -44,5 +44,13 @@ namespace F1_Championship
             newChampionship.FormClosed += (s, args) => this.Close();
             newChampionship.Show();
         }
+
+        private void changeChampionship_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form4 newChampionship = new Form4();
+            newChampionship.FormClosed += (s, args) => this.Close();
+            newChampionship.Show();
+        }
     }
 }

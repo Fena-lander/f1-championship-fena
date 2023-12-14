@@ -92,5 +92,10 @@ namespace F1_Championship
             }
             carNumber.MaxLength = 10;
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

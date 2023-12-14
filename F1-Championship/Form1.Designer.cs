@@ -50,6 +50,7 @@
             this.changeChampionship.TabIndex = 1;
             this.changeChampionship.Text = "Acompanhar Campeonato";
             this.changeChampionship.UseVisualStyleBackColor = true;
+            this.changeChampionship.Click += new System.EventHandler(this.changeChampionship_Click);
             // 
             // Form1
             // 
