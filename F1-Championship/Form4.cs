@@ -21,8 +21,12 @@ namespace F1_Championship
         public Form4()
         {
             InitializeComponent();
+            if (File.Exists(filePath))
+            {
+                ReadChampionships();
+            }
+
             GenerateGrade();
-            ReadChampionships();
         }
 
         private void ReadChampionships() 

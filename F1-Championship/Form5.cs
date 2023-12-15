@@ -84,5 +84,18 @@ namespace F1_Championship
             newChampionship.Show();
 
         }
+
+        private void addPilot_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form6 newChampionship = new Form6(championshipNameSelect);
+            newChampionship.FormClosed += (s, args) => this.Close();
+            newChampionship.Show();
+        }
+
+        private void deletePilotOnChampionship_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
