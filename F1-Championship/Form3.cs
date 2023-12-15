@@ -48,25 +48,40 @@ namespace F1_Championship
 
         private void addPilot_Click(object sender, EventArgs e)
         {
+            if (carNumber.Text == "")
+            {
+                MessageBox.Show("Número do carro deve ser preenchido");
+                return;
+            }
+
             string name = pilotName.Text;
             int pilotCarNumber = int.Parse(carNumber.Text);
-
-            foreach(var pilot in lastChampionship.Pilots)
+            int points = 0;
+            
+            if(name == "")
             {
-                if(pilot.CarNumber == pilotCarNumber)
+                MessageBox.Show("Nome do piloto deve ser preenchido");
+                return;
+            }
+            else
+            {
+                foreach (var pilot in lastChampionship.Pilots)
                 {
-                    MessageBox.Show("Esse número de carro já existe");
-                    pilotName.Text = string.Empty;
-                    carNumber.Text = string.Empty;
-                    return;
+                    if (pilot.CarNumber == pilotCarNumber)
+                    {
+                        MessageBox.Show("Esse número de carro já existe");
+                        carNumber.Text = string.Empty;
+                        return;
+                    }
                 }
             }
 
-            lastChampionship.Pilots.Add(new Pilot { Name = name, CarNumber = pilotCarNumber });
+            lastChampionship.Pilots.Add(new Pilot { Name = name, CarNumber = pilotCarNumber, Points = points });
 
             string updatedJson = JsonConvert.SerializeObject(championshipList, Formatting.Indented);
 
             File.WriteAllText(filePath, updatedJson);
+            pilotName.Text = string.Empty;
             carNumber.Text = string.Empty;
 
             dataGridView1.DataSource = null;

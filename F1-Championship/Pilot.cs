@@ -10,5 +10,6 @@ namespace F1_Championship
     {
         public string Name { get; set; }
         public int CarNumber { get; set; }
+        public int Points { get; set; }
     }
 }

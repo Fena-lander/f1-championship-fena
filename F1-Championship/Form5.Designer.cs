@@ -47,7 +47,7 @@
             this.backListChampionship.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backListChampionship.Location = new System.Drawing.Point(12, 405);
             this.backListChampionship.Name = "backListChampionship";
-            this.backListChampionship.Size = new System.Drawing.Size(110, 33);
+            this.backListChampionship.Size = new System.Drawing.Size(97, 33);
             this.backListChampionship.TabIndex = 2;
             this.backListChampionship.Text = "↩   Voltar\r\n";
             this.backListChampionship.UseVisualStyleBackColor = true;

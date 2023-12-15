@@ -41,6 +41,7 @@ namespace F1_Championship
             if (campeonatoExistente)
             {
                 MessageBox.Show("Já existe um campeonato com o mesmo nome. Escolha um nome diferente.");
+                championshipName.Text = string.Empty;
                 return;
             }
             else

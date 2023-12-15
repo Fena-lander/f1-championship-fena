@@ -38,13 +38,14 @@ namespace F1_Championship
 
         private void ReadChampionships()
         {
-            string[] item = new string[2];
+            string[] item = new string[3];
             foreach (Championship champ in championshipNameSelect)
             {
                 foreach(Pilot pilot in champ.Pilots)
                 {
                     item[0] = pilot.CarNumber.ToString();
                     item[1] = pilot.Name.ToString();
+                    item[2] = pilot.Points.ToString();
 
                     listView1.Items.Add(new ListViewItem(item));
                 }

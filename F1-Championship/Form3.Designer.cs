@@ -35,7 +35,7 @@
             this.carNumber = new System.Windows.Forms.TextBox();
             this.addPilot = new System.Windows.Forms.Button();
             this.clearPilot = new System.Windows.Forms.Button();
-            this.finishChampionship = new System.Windows.Forms.Button();
+            this.startChampionship = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,22 +104,22 @@
             this.clearPilot.UseVisualStyleBackColor = true;
             this.clearPilot.Click += new System.EventHandler(this.button2_Click);
             // 
-            // finishChampionship
+            // startChampionship
             // 
-            this.finishChampionship.Location = new System.Drawing.Point(34, 225);
-            this.finishChampionship.Name = "finishChampionship";
-            this.finishChampionship.Size = new System.Drawing.Size(269, 46);
-            this.finishChampionship.TabIndex = 5;
-            this.finishChampionship.Text = "Começar Campeonato";
-            this.finishChampionship.UseVisualStyleBackColor = true;
-            this.finishChampionship.Click += new System.EventHandler(this.finishChampionship_Click);
+            this.startChampionship.Location = new System.Drawing.Point(34, 225);
+            this.startChampionship.Name = "startChampionship";
+            this.startChampionship.Size = new System.Drawing.Size(269, 46);
+            this.startChampionship.TabIndex = 5;
+            this.startChampionship.Text = "Começar Campeonato";
+            this.startChampionship.UseVisualStyleBackColor = true;
+            this.startChampionship.Click += new System.EventHandler(this.finishChampionship_Click);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 315);
-            this.Controls.Add(this.finishChampionship);
+            this.Controls.Add(this.startChampionship);
             this.Controls.Add(this.clearPilot);
             this.Controls.Add(this.addPilot);
             this.Controls.Add(this.carNumber);
@@ -144,6 +144,6 @@
         private System.Windows.Forms.TextBox carNumber;
         private System.Windows.Forms.Button addPilot;
         private System.Windows.Forms.Button clearPilot;
-        private System.Windows.Forms.Button finishChampionship;
+        private System.Windows.Forms.Button startChampionship;
     }
 }
