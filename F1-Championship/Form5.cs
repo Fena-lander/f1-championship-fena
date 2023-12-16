@@ -54,7 +54,6 @@ namespace F1_Championship
 
         }
 
-
         private void GenerateGrade()
         {
             listView1.Columns.Add("Carro", 100);
@@ -95,7 +94,23 @@ namespace F1_Championship
 
         private void deletePilotOnChampionship_Click(object sender, EventArgs e)
         {
+            foreach (ListViewItem item in listView1.Items)
+            {
+                if (item.Selected)
+                {
+                    string pilotNameToDelete = item.SubItems[1].Text;
 
+                    Championship championshipContainingPilot = championshipNameSelect.FirstOrDefault();
+                    Pilot pilotToRemove = championshipContainingPilot.Pilots.FirstOrDefault(pilot => pilot.Name == pilotNameToDelete);
+
+                    championshipContainingPilot.Pilots.Remove(pilotToRemove);
+
+                    listView1.Items.Remove(item);
+
+                    string json = JsonConvert.SerializeObject(championshipNameSelect, Formatting.Indented);
+                    File.WriteAllText(filePath, json);
+                }
+            }
         }
     }
 }
