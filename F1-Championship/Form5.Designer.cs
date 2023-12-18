@@ -32,6 +32,7 @@
             this.backListChampionship = new System.Windows.Forms.Button();
             this.addPilot = new System.Windows.Forms.Button();
             this.deletePilotOnChampionship = new System.Windows.Forms.Button();
+            this.editPilot = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -77,11 +78,23 @@
             this.deletePilotOnChampionship.UseVisualStyleBackColor = true;
             this.deletePilotOnChampionship.Click += new System.EventHandler(this.deletePilotOnChampionship_Click);
             // 
+            // editPilot
+            // 
+            this.editPilot.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editPilot.Location = new System.Drawing.Point(13, 299);
+            this.editPilot.Name = "editPilot";
+            this.editPilot.Size = new System.Drawing.Size(96, 47);
+            this.editPilot.TabIndex = 4;
+            this.editPilot.Text = "Editar Piloto";
+            this.editPilot.UseVisualStyleBackColor = true;
+            this.editPilot.Click += new System.EventHandler(this.editPilot_Click);
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 457);
+            this.Controls.Add(this.editPilot);
             this.Controls.Add(this.deletePilotOnChampionship);
             this.Controls.Add(this.addPilot);
             this.Controls.Add(this.backListChampionship);
@@ -98,5 +111,6 @@
         private System.Windows.Forms.Button backListChampionship;
         private System.Windows.Forms.Button addPilot;
         private System.Windows.Forms.Button deletePilotOnChampionship;
+        private System.Windows.Forms.Button editPilot;
     }
 }

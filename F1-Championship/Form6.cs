@@ -53,7 +53,7 @@ namespace F1_Championship
         }
 
         private void addPilot_Click(object sender, EventArgs e)
-        {
+           {
             if (carNumber.Text == "")
             {
                 MessageBox.Show("Número do carro deve ser preenchido");

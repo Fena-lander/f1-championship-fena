@@ -112,5 +112,24 @@ namespace F1_Championship
                 }
             }
         }
+
+        private void editPilot_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in listView1.Items)
+            {
+                if (item.Selected)
+                {
+                    string pilotNameToEdit = item.SubItems[1].Text;
+
+                    Championship championshipContainingPilot = championshipNameSelect.FirstOrDefault();
+                    Pilot pilotToEdit = championshipContainingPilot.Pilots.FirstOrDefault(pilot => pilot.Name == pilotNameToEdit);
+
+                    this.Hide();
+                    Form7 newChampionship = new Form7(championshipNameSelect, pilotToEdit);
+                    newChampionship.FormClosed += (s, args) => this.Close();
+                    newChampionship.Show();
+                }
+            }
+        }
     }
 }
