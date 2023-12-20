@@ -131,5 +131,13 @@ namespace F1_Championship
                 }
             }
         }
+
+        private void createRace_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form8 newChampionship = new Form8(championshipNameSelect);
+            newChampionship.FormClosed += (s, args) => this.Close();
+            newChampionship.Show();
+        }
     }
 }

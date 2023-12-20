@@ -33,6 +33,7 @@
             this.addPilot = new System.Windows.Forms.Button();
             this.deletePilotOnChampionship = new System.Windows.Forms.Button();
             this.editPilot = new System.Windows.Forms.Button();
+            this.createRace = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -89,11 +90,23 @@
             this.editPilot.UseVisualStyleBackColor = true;
             this.editPilot.Click += new System.EventHandler(this.editPilot_Click);
             // 
+            // createRace
+            // 
+            this.createRace.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createRace.Location = new System.Drawing.Point(130, 299);
+            this.createRace.Name = "createRace";
+            this.createRace.Size = new System.Drawing.Size(96, 47);
+            this.createRace.TabIndex = 5;
+            this.createRace.Text = "Criar Corrida";
+            this.createRace.UseVisualStyleBackColor = true;
+            this.createRace.Click += new System.EventHandler(this.createRace_Click);
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 457);
+            this.Controls.Add(this.createRace);
             this.Controls.Add(this.editPilot);
             this.Controls.Add(this.deletePilotOnChampionship);
             this.Controls.Add(this.addPilot);
@@ -112,5 +125,6 @@
         private System.Windows.Forms.Button addPilot;
         private System.Windows.Forms.Button deletePilotOnChampionship;
         private System.Windows.Forms.Button editPilot;
+        private System.Windows.Forms.Button createRace;
     }
 }

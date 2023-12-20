@@ -32,11 +32,11 @@
             this.carNumberEdit = new System.Windows.Forms.TextBox();
             this.pilotNameEdit = new System.Windows.Forms.TextBox();
             this.editPilotName = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pointsEdit = new System.Windows.Forms.TextBox();
             this.editPilotPoints = new System.Windows.Forms.Label();
-            this.backToChampionship = new System.Windows.Forms.Button();
             this.saveEditPilot = new System.Windows.Forms.Button();
+            this.backToChampionship = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,15 +76,6 @@
             this.editPilotName.Text = "Nome do Piloto";
             this.editPilotName.Click += new System.EventHandler(this.label1_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(328, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(297, 291);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
             // pointsEdit
             // 
             this.pointsEdit.Location = new System.Drawing.Point(126, 128);
@@ -104,6 +95,16 @@
             this.editPilotPoints.Text = "Pontos do Piloto";
             this.editPilotPoints.Click += new System.EventHandler(this.label1_Click);
             // 
+            // saveEditPilot
+            // 
+            this.saveEditPilot.Location = new System.Drawing.Point(35, 174);
+            this.saveEditPilot.Name = "saveEditPilot";
+            this.saveEditPilot.Size = new System.Drawing.Size(268, 46);
+            this.saveEditPilot.TabIndex = 5;
+            this.saveEditPilot.Text = "Salvar";
+            this.saveEditPilot.UseVisualStyleBackColor = true;
+            this.saveEditPilot.Click += new System.EventHandler(this.saveEditPilot_Click);
+            // 
             // backToChampionship
             // 
             this.backToChampionship.Location = new System.Drawing.Point(35, 241);
@@ -114,15 +115,14 @@
             this.backToChampionship.UseVisualStyleBackColor = true;
             this.backToChampionship.Click += new System.EventHandler(this.backToChampionship_Click);
             // 
-            // saveEditPilot
+            // dataGridView1
             // 
-            this.saveEditPilot.Location = new System.Drawing.Point(35, 174);
-            this.saveEditPilot.Name = "saveEditPilot";
-            this.saveEditPilot.Size = new System.Drawing.Size(268, 46);
-            this.saveEditPilot.TabIndex = 5;
-            this.saveEditPilot.Text = "Salvar";
-            this.saveEditPilot.UseVisualStyleBackColor = true;
-            this.saveEditPilot.Click += new System.EventHandler(this.saveEditPilot_Click);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(328, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(297, 291);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Form7
             // 
@@ -152,10 +152,10 @@
         private System.Windows.Forms.TextBox carNumberEdit;
         private System.Windows.Forms.TextBox pilotNameEdit;
         private System.Windows.Forms.Label editPilotName;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox pointsEdit;
         private System.Windows.Forms.Label editPilotPoints;
-        private System.Windows.Forms.Button backToChampionship;
         private System.Windows.Forms.Button saveEditPilot;
+        private System.Windows.Forms.Button backToChampionship;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

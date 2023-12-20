@@ -8,8 +8,6 @@ namespace F1_Championship
 {
     public class Race
     {
-        public List<Championship> Championships { get; set; }
-        public Pilot Pilot { get; set; }
-        public int Position { get; set; }
+        public int Numbers { get; set; }
     }
 }

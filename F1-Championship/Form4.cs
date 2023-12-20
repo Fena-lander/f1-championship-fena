@@ -34,12 +34,12 @@ namespace F1_Championship
             string json = File.ReadAllText(filePath);
             championshipList = JsonConvert.DeserializeObject<List<Championship>>(json);
 
-            // Mudar string para [3] quando adicionar as corridas dos campeonatos e tirar commit do GenerateGrade()
-            string[] item = new string[2];
+            string[] item = new string[3];
             foreach(Championship champ in championshipList)
             {
                 item[0] = champ.ChampionshipName;
                 item[1] = champ.Pilots.Count.ToString();
+                item[2] = champ.Races.ToString();
 
                 listView1.Items.Add(new ListViewItem(item));
             }
