@@ -59,7 +59,6 @@ namespace F1_Championship
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void backToMenu_Click(object sender, EventArgs e)

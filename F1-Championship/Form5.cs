@@ -48,16 +48,19 @@ namespace F1_Championship
 
         private void ReadChampionships()
         {
-            string[] item = new string[3];
+            string[] item = new string[4];
+            var position = 1;
             foreach (Championship champ in championshipNameSelect)
             {
                 foreach(Pilot pilot in champ.Pilots)
                 {
-                    item[0] = pilot.CarNumber.ToString();
-                    item[1] = pilot.Name.ToString();
-                    item[2] = pilot.Points.ToString();
+                    item[0] = position.ToString();
+                    item[1] = pilot.CarNumber.ToString();
+                    item[2] = pilot.Name.ToString();
+                    item[3] = pilot.Points.ToString();
 
                     listView1.Items.Add(new ListViewItem(item));
+                    position++;
                 }
 
             }
@@ -66,13 +69,15 @@ namespace F1_Championship
 
         private void GenerateGrade()
         {
-            listView1.Columns.Add("Carro", 100);
-            listView1.Columns.Add("Piloto", 100);
-            listView1.Columns.Add("Pontos", 100);
+            listView1.Columns.Add("Posição",50);
+            listView1.Columns.Add("Carro", 50);
+            listView1.Columns.Add("Piloto", 140);
+            listView1.Columns.Add("Pontos", 60);
             listView1.View = View.Details;
 
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
+            listView1.Scrollable = false;
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
