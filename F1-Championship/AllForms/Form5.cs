@@ -113,17 +113,22 @@ namespace F1_Championship
             {
                 if (item.Selected)
                 {
-                    string pilotNameToDelete = item.SubItems[1].Text;
+                    string pilotNameToDelete = item.SubItems[2].Text;
 
-                    Championship championshipContainingPilot = championshipNameSelect.FirstOrDefault();
-                    Pilot pilotToRemove = championshipContainingPilot.Pilots.FirstOrDefault(pilot => pilot.Name == pilotNameToDelete);
+                    foreach (var championship in championshipNameSelect)
+                    {
+                        var pilotToDelete = championship.Pilots.FirstOrDefault(p => p.Name == pilotNameToDelete);
 
-                    championshipContainingPilot.Pilots.Remove(pilotToRemove);
+                        if (pilotToDelete != null)
+                        {
+                            championship.Pilots.Remove(pilotToDelete);
+                        }
+                    }
+
+                    string updatedJson = JsonConvert.SerializeObject(championshipNameSelect, Formatting.Indented);
+                    File.WriteAllText(filePath, updatedJson);
 
                     listView1.Items.Remove(item);
-
-                    string json = JsonConvert.SerializeObject(championshipNameSelect, Formatting.Indented);
-                    File.WriteAllText(filePath, json);
                 }
             }
         }
