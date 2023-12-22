@@ -32,8 +32,18 @@ namespace F1_Championship
             championshipLabel.AutoSize = true;
             this.Controls.Add(championshipLabel);
 
+            OrderPilotsByPoints();
+
             GenerateGrade();
             ReadChampionships();
+        }
+
+        private void OrderPilotsByPoints()
+        {
+            foreach (Championship champ in championshipNameSelect)
+            {
+                champ.Pilots = champ.Pilots.OrderByDescending(p => p.Points).ToList();
+            }
         }
 
         private void ReadChampionships()

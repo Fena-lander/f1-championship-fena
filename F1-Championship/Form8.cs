@@ -26,9 +26,12 @@ namespace F1_Championship
 
             InitializeComponent();
 
-            if (dataGridView1.Rows.Count > 0)
+            pilotName.Visible = false;
+
+            List<Pilot> allPilots = championshipNameSelect.SelectMany(champioship => champioship.Pilots).ToList();
+            foreach (Pilot pilot in allPilots)
             {
-                selectedPilot = (Pilot)dataGridView1.Rows[0].DataBoundItem;
+                pilot.Points = 0;
             }
 
             LoadDataGridView();
@@ -36,7 +39,7 @@ namespace F1_Championship
 
         private void LoadDataGridView()
         {
-             List<Pilot> allPilots = championshipNameSelect.SelectMany(championship => championship.Pilots).ToList();
+            List<Pilot> allPilots = championshipNameSelect.SelectMany(championship => championship.Pilots).ToList();
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = allPilots;
 
@@ -99,9 +102,7 @@ namespace F1_Championship
             LoadDataGridView();
 
             savePositionText.Text = string.Empty;
-
-            string updateJson = JsonConvert.SerializeObject(championshipNameSelect, Formatting.Indented);
-            File.WriteAllText(filePath, updateJson);
+            pilotName.Visible = false;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -111,12 +112,52 @@ namespace F1_Championship
                 return;
             }
             selectedPilot = (Pilot)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+
+            pilotName.Text = selectedPilot.Name;
+
+            pilotName.Visible = true;
         }
 
-        private void backToChampionship_Click_1(object sender, EventArgs e)
+        private void finishRace_Click(object sender, EventArgs e)
         {
+            string json = File.ReadAllText(filePath);
+
+            List<Championship> championshipList = JsonConvert.DeserializeObject<List<Championship>>(json);
+
+            Championship findingChampionship = championshipList.FirstOrDefault(c => c.ChampionshipName == championshipNameSelect.First().ChampionshipName);
+
+            findingChampionship.Races++;
+
+            foreach (var pilot in findingChampionship.Pilots)
+            {
+                var findingPilot = championshipNameSelect.SelectMany(c => c.Pilots)
+                    .FirstOrDefault(p => p.CarNumber == pilot.CarNumber);
+
+                pilot.Points += findingPilot.Points;
+
+                findingPilot.Points = pilot.Points;
+            }
+
+            string updatedJson = JsonConvert.SerializeObject(championshipList, Formatting.Indented);
+
+            File.WriteAllText(filePath, updatedJson);
+
             this.Hide();
             Form5 newChampionship = new Form5(championshipNameSelect);
+            newChampionship.FormClosed += (s, args) => this.Close();
+            newChampionship.Show();
+        }
+
+        private void cancelRace_Click(object sender, EventArgs e)
+        {
+            string json = File.ReadAllText(filePath);
+            List<Championship> championshipList = JsonConvert.DeserializeObject<List<Championship>>(json);
+
+            string selectedChampionshipName = championshipNameSelect.First().ChampionshipName;
+            Championship findingChampionship = championshipList.FirstOrDefault(c => c.ChampionshipName == selectedChampionshipName);
+
+            this.Hide();
+            Form5 newChampionship = new Form5(new List<Championship> { findingChampionship });
             newChampionship.FormClosed += (s, args) => this.Close();
             newChampionship.Show();
         }

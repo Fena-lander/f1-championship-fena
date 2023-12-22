@@ -30,9 +30,11 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.savePosition = new System.Windows.Forms.Button();
-            this.backToChampionship = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.savePositionText = new System.Windows.Forms.TextBox();
+            this.finishRace = new System.Windows.Forms.Button();
+            this.cancelRace = new System.Windows.Forms.Button();
+            this.pilotName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,28 +49,18 @@
             // 
             // savePosition
             // 
-            this.savePosition.Location = new System.Drawing.Point(33, 171);
+            this.savePosition.Location = new System.Drawing.Point(34, 129);
             this.savePosition.Name = "savePosition";
-            this.savePosition.Size = new System.Drawing.Size(268, 46);
+            this.savePosition.Size = new System.Drawing.Size(266, 46);
             this.savePosition.TabIndex = 6;
             this.savePosition.Text = "Salvar Posição";
             this.savePosition.UseVisualStyleBackColor = true;
             this.savePosition.Click += new System.EventHandler(this.savePosition_Click);
             // 
-            // backToChampionship
-            // 
-            this.backToChampionship.Location = new System.Drawing.Point(33, 236);
-            this.backToChampionship.Name = "backToChampionship";
-            this.backToChampionship.Size = new System.Drawing.Size(268, 46);
-            this.backToChampionship.TabIndex = 7;
-            this.backToChampionship.Text = "Voltar ao Campeonato";
-            this.backToChampionship.UseVisualStyleBackColor = true;
-            this.backToChampionship.Click += new System.EventHandler(this.backToChampionship_Click_1);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 93);
+            this.label1.Location = new System.Drawing.Point(31, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 8;
@@ -76,21 +68,53 @@
             // 
             // savePositionText
             // 
-            this.savePositionText.Location = new System.Drawing.Point(95, 90);
+            this.savePositionText.Location = new System.Drawing.Point(95, 86);
             this.savePositionText.Name = "savePositionText";
-            this.savePositionText.Size = new System.Drawing.Size(206, 20);
+            this.savePositionText.Size = new System.Drawing.Size(204, 20);
             this.savePositionText.TabIndex = 9;
             this.savePositionText.TextChanged += new System.EventHandler(this.saveEditPilot_Click);
             this.savePositionText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.savePositionText_KeyPress);
+            // 
+            // finishRace
+            // 
+            this.finishRace.Location = new System.Drawing.Point(34, 233);
+            this.finishRace.Name = "finishRace";
+            this.finishRace.Size = new System.Drawing.Size(267, 46);
+            this.finishRace.TabIndex = 10;
+            this.finishRace.Text = "Finalizar Corrida";
+            this.finishRace.UseVisualStyleBackColor = true;
+            this.finishRace.Click += new System.EventHandler(this.finishRace_Click);
+            // 
+            // cancelRace
+            // 
+            this.cancelRace.Location = new System.Drawing.Point(34, 181);
+            this.cancelRace.Name = "cancelRace";
+            this.cancelRace.Size = new System.Drawing.Size(266, 46);
+            this.cancelRace.TabIndex = 11;
+            this.cancelRace.Text = "Cancelar Corrida";
+            this.cancelRace.UseVisualStyleBackColor = true;
+            this.cancelRace.Click += new System.EventHandler(this.cancelRace_Click);
+            // 
+            // pilotName
+            // 
+            this.pilotName.AutoSize = true;
+            this.pilotName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pilotName.Location = new System.Drawing.Point(29, 28);
+            this.pilotName.Name = "pilotName";
+            this.pilotName.Size = new System.Drawing.Size(203, 25);
+            this.pilotName.TabIndex = 12;
+            this.pilotName.Text = "Selecione um Piloto";
             // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(635, 317);
+            this.Controls.Add(this.pilotName);
+            this.Controls.Add(this.cancelRace);
+            this.Controls.Add(this.finishRace);
             this.Controls.Add(this.savePositionText);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.backToChampionship);
             this.Controls.Add(this.savePosition);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form8";
@@ -105,8 +129,10 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button savePosition;
-        private System.Windows.Forms.Button backToChampionship;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox savePositionText;
+        private System.Windows.Forms.Button finishRace;
+        private System.Windows.Forms.Button cancelRace;
+        private System.Windows.Forms.Label pilotName;
     }
 }
