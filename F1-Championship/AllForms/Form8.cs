@@ -43,11 +43,11 @@ namespace F1_Championship
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = allPilots;
 
-            if (dataGridView1.Rows.Count > 0)
-            {
-                dataGridView1.Rows[0].Selected = true;
-                selectedPilot = (Pilot)dataGridView1.Rows[0].DataBoundItem;
-            }
+            //if (dataGridView1.Rows.Count > 0)
+            //{
+            //    dataGridView1.Rows[0].Selected = true;
+            //    selectedPilot = (Pilot)dataGridView1.Rows[0].DataBoundItem;
+            //}
         }
 
         private int GetPointsForPosition(int position)
@@ -93,10 +93,21 @@ namespace F1_Championship
 
         private void savePosition_Click(object sender, EventArgs e)
         {
+            if(savePositionText.Text == "")
+            {
+                MessageBox.Show("Digite a posição do seu camarada, meu camarada");
+                return;
+            }
             int position = int.Parse(savePositionText.Text);
 
             int points = GetPointsForPosition(position);
 
+            if(selectedPilot == null)
+            {
+                MessageBox.Show("Selecione um piloto para salvar a posição");
+                savePositionText.Text = string.Empty;
+                return;
+            }
             selectedPilot.Points += points;
 
             LoadDataGridView();
