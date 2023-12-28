@@ -34,6 +34,7 @@
             this.deletePilotOnChampionship = new System.Windows.Forms.Button();
             this.editPilot = new System.Windows.Forms.Button();
             this.createRace = new System.Windows.Forms.Button();
+            this.finishChampionship = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -49,7 +50,7 @@
             // backListChampionship
             // 
             this.backListChampionship.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backListChampionship.Location = new System.Drawing.Point(12, 405);
+            this.backListChampionship.Location = new System.Drawing.Point(12, 406);
             this.backListChampionship.Name = "backListChampionship";
             this.backListChampionship.Size = new System.Drawing.Size(214, 33);
             this.backListChampionship.TabIndex = 2;
@@ -60,7 +61,7 @@
             // addPilot
             // 
             this.addPilot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addPilot.Location = new System.Drawing.Point(12, 352);
+            this.addPilot.Location = new System.Drawing.Point(12, 353);
             this.addPilot.Name = "addPilot";
             this.addPilot.Size = new System.Drawing.Size(97, 47);
             this.addPilot.TabIndex = 3;
@@ -71,7 +72,7 @@
             // deletePilotOnChampionship
             // 
             this.deletePilotOnChampionship.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deletePilotOnChampionship.Location = new System.Drawing.Point(129, 352);
+            this.deletePilotOnChampionship.Location = new System.Drawing.Point(129, 353);
             this.deletePilotOnChampionship.Name = "deletePilotOnChampionship";
             this.deletePilotOnChampionship.Size = new System.Drawing.Size(97, 47);
             this.deletePilotOnChampionship.TabIndex = 3;
@@ -82,7 +83,7 @@
             // editPilot
             // 
             this.editPilot.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editPilot.Location = new System.Drawing.Point(13, 299);
+            this.editPilot.Location = new System.Drawing.Point(13, 300);
             this.editPilot.Name = "editPilot";
             this.editPilot.Size = new System.Drawing.Size(96, 47);
             this.editPilot.TabIndex = 4;
@@ -93,7 +94,7 @@
             // createRace
             // 
             this.createRace.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createRace.Location = new System.Drawing.Point(130, 299);
+            this.createRace.Location = new System.Drawing.Point(130, 300);
             this.createRace.Name = "createRace";
             this.createRace.Size = new System.Drawing.Size(96, 47);
             this.createRace.TabIndex = 5;
@@ -101,11 +102,23 @@
             this.createRace.UseVisualStyleBackColor = true;
             this.createRace.Click += new System.EventHandler(this.createRace_Click);
             // 
+            // finishChampionship
+            // 
+            this.finishChampionship.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.finishChampionship.Location = new System.Drawing.Point(13, 261);
+            this.finishChampionship.Name = "finishChampionship";
+            this.finishChampionship.Size = new System.Drawing.Size(214, 33);
+            this.finishChampionship.TabIndex = 6;
+            this.finishChampionship.Text = "Finalizar Campeonato";
+            this.finishChampionship.UseVisualStyleBackColor = true;
+            this.finishChampionship.Click += new System.EventHandler(this.finishChampionship_Click);
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 457);
+            this.Controls.Add(this.finishChampionship);
             this.Controls.Add(this.createRace);
             this.Controls.Add(this.editPilot);
             this.Controls.Add(this.deletePilotOnChampionship);
@@ -114,6 +127,7 @@
             this.Controls.Add(this.listView1);
             this.Name = "Form5";
             this.Text = "Form5";
+            this.Load += new System.EventHandler(this.Form5_Load);
             this.ResumeLayout(false);
 
         }
@@ -126,5 +140,6 @@
         private System.Windows.Forms.Button deletePilotOnChampionship;
         private System.Windows.Forms.Button editPilot;
         private System.Windows.Forms.Button createRace;
+        private System.Windows.Forms.Button finishChampionship;
     }
 }

@@ -12,6 +12,7 @@ namespace F1_Championship
         public string ChampionshipName{ get; set; }
         public int Races { get; set; }
         public List<Pilot> Pilots { get; set; }
+        public bool Finish { get; set; }
 
         public Championship()
         {

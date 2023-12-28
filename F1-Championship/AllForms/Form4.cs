@@ -100,10 +100,22 @@ namespace F1_Championship
                     string championshipNameSelect = item.SubItems[0].Text;
                     var championshipsSelected = championshipList.Where(c => c.ChampionshipName == championshipNameSelect).ToList();
 
-                    this.Hide();
-                    Form5 newChampionship = new Form5(championshipsSelected);
-                    newChampionship.FormClosed += (s, args) => this.Close();
-                    newChampionship.Show();
+                    bool isChampionshipActive = championshipsSelected.FirstOrDefault()?.Finish ?? false;
+                    
+                    if(isChampionshipActive == false)
+                    {
+                        this.Hide();
+                        Form5 newChampionship = new Form5(championshipsSelected);
+                        newChampionship.FormClosed += (s, args) => this.Close();
+                        newChampionship.Show();
+                    }
+                    else
+                    {
+                        this.Hide();
+                        Form9 newChampionship = new Form9(championshipsSelected);
+                        newChampionship.FormClosed += (s, args) => this.Close();
+                        newChampionship.Show();
+                    }
                 }
             }
         }

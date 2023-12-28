@@ -159,5 +159,26 @@ namespace F1_Championship
             newChampionship.FormClosed += (s, args) => this.Close();
             newChampionship.Show();
         }
+
+        private void Form5_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void finishChampionship_Click(object sender, EventArgs e)
+        {
+            Championship currentChampionship = championshipNameSelect.FirstOrDefault();
+
+            currentChampionship.Finish = true;
+
+            string updatedJson = JsonConvert.SerializeObject(championshipNameSelect, Formatting.Indented);
+            File.WriteAllText(filePath, updatedJson);
+
+            this.Hide();
+            Form9 newChampionship = new Form9(championshipNameSelect);
+            newChampionship.FormClosed += (s, args) => this.Close();
+            newChampionship.Show();
+
+        }
     }
 }
